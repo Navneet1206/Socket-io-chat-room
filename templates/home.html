@@ -1,6 +1,9 @@
 {% extends 'base.html' %} {% block content %}
+
 <form method="post" class="buttons">
   <h3>Enter The Chat Room</h3>
+  
+  <!-- Name Input Field -->
   <div>
     <label>Name:</label>
     <input
@@ -10,11 +13,21 @@
       value="{{name}}"
     />
   </div>
+
+  <!-- Join Room Section -->
   <div class="join">
     <input type="text" placeholder="Room Code" name="code" value="{{code}}" />
     <button type="submit" name="join">Join a Room</button>
   </div>
+
+  <!-- OR Divider -->
+  <div class="or-divider">
+    <span>OR</span>
+  </div>
+
+  <!-- Create Room Section -->
   <button type="submit" name="create" class="create-btn">Create a Room</button>
+
   {% if error %}
   <ul>
     <li>{{error}}</li>

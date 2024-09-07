@@ -5,21 +5,23 @@
   <div class="inputs">
     <input
       type="text"
-      rows="3"
-      placeholder="Message"
+      placeholder="Type a message..."
       name="message"
       id="message"
+      onkeypress="checkEnter(event)"  <!-- Event to handle "Enter" key -->
     />
     <button type="button" name="send" id="send-btn" onClick="sendMessage()">
-      Send
+      <span>&#9658;</span> <!-- Send button icon -->
     </button>
   </div>
 </div>
+
 <script type="text/javascript">
   var socketio = io();
 
   const messages = document.getElementById("messages");
 
+  // Function to create message element
   const createMessage = (name, msg) => {
     const content = `
     <div class="text">
@@ -32,19 +34,31 @@
     </div>
     `;
     messages.innerHTML += content;
+    messages.scrollTop = messages.scrollHeight;  // Auto-scroll to bottom
   };
 
+  // Socket event listener for receiving messages
   socketio.on("message", (data) => {
     createMessage(data.name, data.message);
   });
 
+  // Function to send message
   const sendMessage = () => {
-    const message = document.getElementById("message");
-    if (message.value == "") return;
-    socketio.emit("message", { data: message.value });
-    message.value = "";
+    const messageInput = document.getElementById("message");
+    if (messageInput.value.trim() === "") return;
+    socketio.emit("message", { data: messageInput.value });
+    messageInput.value = "";  // Clear input after sending
+    messageInput.focus();     // Refocus input
+  };
+
+  // Function to handle "Enter" key press in input field
+  const checkEnter = (event) => {
+    if (event.key === "Enter") {
+      sendMessage();
+    }
   };
 </script>
+
 {% for msg in messages %}
 <script type="text/javascript">
   createMessage("{{msg.name}}", "{{msg.message}}");

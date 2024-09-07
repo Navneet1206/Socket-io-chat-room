@@ -1,69 +1,252 @@
+.inputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+/* Input field similar to WhatsApp */
+#message {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+  resize: none;
+  box-sizing: border-box;
+  min-height: 40px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Send button similar to WhatsApp */
+#send-btn {
+  background-color: #25d366;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#send-btn:hover {
+  background-color: #1ebd58;
+}
+
+/* Optional: Add icons */
+#send-btn::before {
+  content: "\27A4"; /* Send icon like WhatsApp */
+  font-size: 16px;
+  color: white;
+}
+
+/* General Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+h3, h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .content {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Form Styling */
+form {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
 }
 
 .buttons {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  gap: 15px;
 }
 
-.join {
-  display: flex;
-  flex-direction: row;
+input[type="text"] {
   width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #5c67f2;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #4a54c7;
 }
 
 .create-btn {
-  width: 100%;
+  background-color: #ff9800;
 }
 
+.create-btn:hover {
+  background-color: #e68a00;
+}
+
+.error {
+  color: #e74c3c;
+  list-style: none;
+}
+
+/* Chat Room Styles */
 .message-box {
-  border-color: black;
-  border-width: 2px;
-  border-style: solid;
+  border: 2px solid #333;
   border-radius: 10px;
-  background-color: whitesmoke;
-  height: 80vh;
+  background-color: white;
   display: flex;
   flex-direction: column;
+  height: 80vh;
   width: 80vw;
-  align-items: stretch;
+  max-width: 800px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
 .messages {
-  overflow-y: scroll;
+  overflow-y: auto;
   flex: 1;
-  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
 }
 
 .inputs {
-  padding: 10px;
   display: flex;
-}
-
-h2 {
-  text-align: center;
+  gap: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  align-items: center;
 }
 
 #message {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   flex: 1;
+  height: 40px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
 }
 
+#send-btn {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#send-btn:hover {
+  background-color: #45a049;
+}
+
+/* Message Styling */
 .text {
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: space-between;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #eef2f7;
+  border-radius: 5px;
 }
 
 .muted {
-  font-size: 10px;
-  color: darkgray;
+  font-size: 12px;
+  color: #999;
+}
+
+
+/* OR Divider Styling */
+.or-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: 10px 0;
+  position: relative;
+}
+
+.or-divider::before, 
+.or-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+  margin: 0 10px;
+}
+
+.or-divider span {
+  font-size: 16px;
+  color: #999;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .message-box {
+    width: 90vw;
+    height: 70vh;
+  }
+  
+  form {
+    width: 90vw;
+  }
+  
+  h2, h3 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .message-box {
+    width: 100vw;
+    height: 60vh;
+  }
+
+  form {
+    width: 100vw;
+    padding: 15px;
+  }
 }
