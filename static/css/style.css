@@ -1,54 +1,3 @@
-.inputs {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  border-top: 1px solid #ddd;
-  background-color: #f9f9f9;
-}
-
-/* Input field similar to WhatsApp */
-#message {
-  flex: 1;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  outline: none;
-  resize: none;
-  box-sizing: border-box;
-  min-height: 40px;
-  background-color: #fff;
-  color: #333;
-}
-
-/* Send button similar to WhatsApp */
-#send-btn {
-  background-color: #25d366;
-  border: none;
-  color: white;
-  font-size: 18px;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#send-btn:hover {
-  background-color: #1ebd58;
-}
-
-/* Optional: Add icons */
-#send-btn::before {
-  content: "\27A4"; /* Send icon like WhatsApp */
-  font-size: 16px;
-  color: white;
-}
-
 /* General Styles */
 body, html {
   margin: 0;
@@ -74,6 +23,11 @@ a {
   justify-content: center;
   min-height: 100vh;
   padding: 20px;
+}
+
+.error {
+  color: #e74c3c;
+  list-style: none;
 }
 
 /* Form Styling */
@@ -124,11 +78,6 @@ button:hover {
   background-color: #e68a00;
 }
 
-.error {
-  color: #e74c3c;
-  list-style: none;
-}
-
 /* Chat Room Styles */
 .message-box {
   border: 2px solid #333;
@@ -151,36 +100,53 @@ button:hover {
   background-color: #f9f9f9;
 }
 
+/* Input Section for Message (WhatsApp-like) */
 .inputs {
   display: flex;
-  gap: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
   align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background-color: #f9f9f9;
 }
 
 #message {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
   flex: 1;
-  height: 40px;
+  padding: 10px;
   font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
   outline: none;
+  resize: none;
   box-sizing: border-box;
+  min-height: 40px;
+  background-color: #fff;
+  color: #333;
 }
 
 #send-btn {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
+  background-color: #25d366;
   border: none;
-  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 #send-btn:hover {
-  background-color: #45a049;
+  background-color: #1ebd58;
+}
+
+#send-btn::before {
+  content: "\27A4"; /* Send icon */
+  font-size: 16px;
+  color: white;
 }
 
 /* Message Styling */
@@ -197,7 +163,6 @@ button:hover {
   font-size: 12px;
   color: #999;
 }
-
 
 /* OR Divider Styling */
 .or-divider {
@@ -221,7 +186,6 @@ button:hover {
   font-size: 16px;
   color: #999;
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
