@@ -96,6 +96,7 @@ def disconnect():
     send({"name": name, "message": "has left the room"}, to=room)
     print(f"{name} has left the room {room}")
 
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Use the PORT environment variable
-    socketio.run(app, host='0.0.0.0', port=port, debug=True)
+# Remove the following block
+# if __name__ == '__main__':
+#     port = int(os.environ.get('PORT', 5000))  # Use the PORT environment variable
+#     socketio.run(app, host='0.0.0.0', port=port, debug=True)
